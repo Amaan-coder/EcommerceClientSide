@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ResponseDto } from './common.model';
+// import { any } from './common.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +10,11 @@ export class CommonService {
 
   constructor(private http:HttpClient) { }
 
-  public httpGet(url: any): Observable<ResponseDto> {
-    return this.http.get<ResponseDto>(url);
+  public httpGet(url: any): Observable<any> {
+    return this.http.get<any>(url);
   }
 
-  public httpPost(url: any, reqData: any): Observable<ResponseDto> {
-    return this.http.post<ResponseDto>(url, reqData);
+  public httpPost(url: any, reqData: any): Observable<any> {
+    return this.http.post<any>(url, reqData);
   }
 }
