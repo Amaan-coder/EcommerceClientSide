@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductListComponent } from './ecommerce/product-list/product-list.component';
 import { CategoriesComponent } from './ecommerce/categories/categories.component';
+import { SearchComponent } from './ecommerce/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
