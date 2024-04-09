@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../../common/common.service';
-import { GET_ALL_DETAILS } from '../../../auth';
+import { GET_ALL_DETAILS, GET_BY_CATEGORY } from '../../../auth';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -9,14 +10,24 @@ import { GET_ALL_DETAILS } from '../../../auth';
 })
 export class ProductListComponent implements OnInit{
   productList:any;
-  constructor(private common:CommonService){}
+  categoryId: any;
+  constructor(private common:CommonService,private route: ActivatedRoute){}
   ngOnInit(): void {
-    this.getAllProduct();
-
+    this.route.params.subscribe(params => {
+      this.categoryId = params['id'];
+      this.getAllProduct();
+    });
   }
-  getAllProduct(){
-    this.common.httpGet(GET_ALL_DETAILS).subscribe((data)=>{
-      this.productList = data.response;
-    })
+  getAllProduct() {
+    if (this.categoryId) {
+      this.common.httpGet(GET_BY_CATEGORY + this.categoryId).subscribe((data) => {
+        this.productList = data.response;
+      });
+    } else {
+      // Fetch all products when no category is selected
+      this.common.httpGet(GET_ALL_DETAILS).subscribe((data) => {
+        this.productList = data.response;
+      });
+    }
   }
 }

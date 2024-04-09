@@ -1,0 +1,20 @@
+<aside class="menu-sidebar d-none d-lg-block">
+  <div class="logo">
+    <a href="#">
+      <img src="../assets/images/SycoLover.png" class="img-responsive" height="2px">
+    </a>
+  </div>
+  <div class="menu-sidebar-content js-scrollbar1">
+    <nav class="navbar-sidebar">
+      <ul class="list-unstyled navbar-list">
+        <li>
+          <a routerLink="/product">All Categories</a>
+        </li>
+        <li *ngFor="let cat of categoriesList">
+          <a [routerLink]="'/category/'+cat.id">{{cat.categoryName}}</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</aside>
