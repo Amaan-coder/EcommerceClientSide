@@ -1,0 +1,77 @@
+<!-- <div class="detail-section">
+  <div class="container-fluid">
+
+      <img src="{{ product.imageUrl }}" class="detail-img" height="">
+
+      <h3>{{ product.name }}</h3>
+      <div class="price">{{ product.unitPrice | currency:'USD' }}</div>
+      <a href="#" class="primary-btn">Add to cart</a>
+
+      <hr>
+      <h4>Description</h4>
+      <p>{{ product.description }}</p>
+
+      <a routerLink="products" class="mt-5">Back to Product List</a>
+  </div>
+</div> -->
+
+
+
+
+<div class="py-3 py-md-5 mt-4 ">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-5 mt-3">
+              <div class="bg-white border">
+                  <img src="{{ product.imageUrl }}" class="w-100" alt="Img">
+              </div>
+          </div>
+          <div class="col-md-7 mt-3">
+              <div class="product-view">
+                  <h4 class="product-name">
+                      {{product.name}}
+                      <label class="label-stock bg-success" *ngIf="product.active">In Stock</label>
+                      <label class="label-stock bg-warning" *ngIf="!product.active">Out Of Stock</label>
+                  </h4>
+                  <hr>
+
+                  <div>
+                      <span class="selling-price">{{product.unitPrice | currency:'USR'}}</span>
+                      <span class="original-price">{{80-product.unitPrice  |currency:'USR'}}</span>
+                  </div>
+                  <div class="mt-2">
+                      <div class="input-group">
+                          <span class="btn btn1"><i class="fa fa-minus" (click)="onMinus()"></i></span>
+                          <input type="text" [value]="quantity" class="input-quantity" />
+                          <span class="btn btn1"><i class="fa fa-plus" (click)="onPlus()"></i></span>
+                      </div>
+                  </div>
+                  <div class="mt-2">
+                      <a href="" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                      <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a>
+                  </div>
+                  <div class="mt-3">
+                      <h5 class="mb-0">Small Description</h5>
+                      <p>
+                          {{product.description}}
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 mt-3 mx-2">
+
+                 <a routerLink="/product">Back to Product List</a>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+

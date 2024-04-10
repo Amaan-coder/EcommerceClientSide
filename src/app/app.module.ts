@@ -8,13 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductListComponent } from './ecommerce/product-list/product-list.component';
 import { CategoriesComponent } from './ecommerce/categories/categories.component';
 import { SearchComponent } from './ecommerce/search/search.component';
+import { ProductDetailsComponent } from './ecommerce/product-details/product-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     CategoriesComponent,
-    SearchComponent
+    SearchComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

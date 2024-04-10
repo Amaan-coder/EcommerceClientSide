@@ -22,21 +22,24 @@ export class ProductListComponent implements OnInit{
     });
   }
   getAllProduct() {
+    console.log("Search",this.search[0]);
 
-    if(this.categoryId!=null || this.categoryId!=undefined){
+    if(this.categoryId!=null&& this.categoryId!=undefined){
 
       this.common.httpGet(GET_BY_CATEGORY + this.categoryId).subscribe((data) => {
         this.productList = data.response;
       });
 
     }
-    if(this.search!=null || this.search!=undefined){
+
+    if(this.search[0]!=null && this.search[0]!=undefined && this.search[0]!="" ){
      this.common.httpGet(GET_PRODUCTS_BY_SEARCH+"?name="+this.search).subscribe((data)=>{
       this.productList=data.response;
      })
 
     }
-      if(this.categoryId==null && this.search==null){
+
+      if(this.categoryId==undefined && this.search[0]==undefined){
         this.common.httpGet(GET_ALL_DETAILS).subscribe((data) => {
           this.productList = data.response;
         });
