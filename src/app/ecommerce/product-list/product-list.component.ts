@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../../common/common.service';
 import { GET_ALL_DETAILS, GET_BY_CATEGORY, GET_PRODUCTS_BY_SEARCH } from '../../../auth';
 import { ActivatedRoute } from '@angular/router';
+import { Products } from './product.model';
+import { CartService } from '../cart-status/cart.service';
+import { CartItem } from '../cart-status/cart.model';
 
 @Component({
   selector: 'app-product-list',
@@ -9,11 +12,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent implements OnInit{
-  productList:any;
+  productList:Products[]=[];
   categoryId: any;
   search:any;
   keyValue:any;
-  constructor(private common:CommonService,private route: ActivatedRoute){}
+  constructor(private common:CommonService,private route: ActivatedRoute, private cart:CartService){}
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.categoryId = params['id'];
@@ -22,8 +25,6 @@ export class ProductListComponent implements OnInit{
     });
   }
   getAllProduct() {
-    console.log("Search",this.search[0]);
-
     if(this.categoryId!=null&& this.categoryId!=undefined){
 
       this.common.httpGet(GET_BY_CATEGORY + this.categoryId).subscribe((data) => {
@@ -45,7 +46,10 @@ export class ProductListComponent implements OnInit{
         });
 
       }
-    // }
+  }
+  addToCart(product:Products){
+    const theCartItem = new CartItem(product);
+    this.cart.addToCart(theCartItem);
   }
 
 }

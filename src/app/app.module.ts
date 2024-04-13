@@ -9,6 +9,7 @@ import { ProductListComponent } from './ecommerce/product-list/product-list.comp
 import { CategoriesComponent } from './ecommerce/categories/categories.component';
 import { SearchComponent } from './ecommerce/search/search.component';
 import { ProductDetailsComponent } from './ecommerce/product-details/product-details.component';
+import { CartStatusComponent } from './ecommerce/cart-status/cart-status.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductDetailsComponent } from './ecommerce/product-details/product-det
     ProductListComponent,
     CategoriesComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartStatusComponent
   ],
   imports: [
     BrowserModule,
