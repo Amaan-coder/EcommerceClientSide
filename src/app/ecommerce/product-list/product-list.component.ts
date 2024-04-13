@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit{
     }
 
     if(this.search[0]!=null && this.search[0]!=undefined && this.search[0]!="" ){
-     this.common.httpGet(GET_PRODUCTS_BY_SEARCH+"?name="+this.search).subscribe((data)=>{
+     this.common.httpGet(GET_PRODUCTS_BY_SEARCH+this.search).subscribe((data)=>{
       this.productList=data.response;
      })
 

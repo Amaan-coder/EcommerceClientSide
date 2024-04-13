@@ -13,7 +13,6 @@ export class SearchComponent {
   }
 
   search(value:any){
-    console.log(`value=${value}`);
     var val = String(value).trim();
     this.router.navigate(['/search/'+val]);
   }
