@@ -10,6 +10,7 @@ import { CategoriesComponent } from './ecommerce/categories/categories.component
 import { SearchComponent } from './ecommerce/search/search.component';
 import { ProductDetailsComponent } from './ecommerce/product-details/product-details.component';
 import { CartStatusComponent } from './ecommerce/cart-status/cart-status.component';
+import { CartDetailsComponent } from './ecommerce/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CartStatusComponent } from './ecommerce/cart-status/cart-status.compone
     CategoriesComponent,
     SearchComponent,
     ProductDetailsComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent
   ],
   imports: [
     BrowserModule,
